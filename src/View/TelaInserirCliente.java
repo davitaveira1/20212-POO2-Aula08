@@ -118,6 +118,7 @@ public class TelaInserirCliente extends javax.swing.JInternalFrame {
         c.setNome(nome);
         c.setTelefone(telefone);
         
+        //INSERT
         controle.adicionarCliente(c);
         
         txtCampoNome.setText("");
