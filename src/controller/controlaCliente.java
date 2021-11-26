@@ -103,4 +103,20 @@ public class controlaCliente {
         }
 
     }
+    
+    //método para buscar todos os clientes da base
+    public ResultSet buscarClientes(){
+        
+        try {
+            
+            st = conn.createStatement();
+            rs = st.executeQuery("select * from clientes");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro: "+ e);
+        }
+        
+        return rs;
+        
+    }
 }

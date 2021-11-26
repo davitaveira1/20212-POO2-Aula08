@@ -5,17 +5,56 @@
  */
 package View;
 
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+import controller.controlaCliente;
+
 /**
  *
  * @author Davi
  */
 public class TelaVisualizarClientes extends javax.swing.JInternalFrame {
+    
+    DefaultTableModel modelo;
+    ResultSet resultados;
+    controlaCliente controle = new controlaCliente();
 
     /**
      * Creates new form TelaVisualizarClientes
      */
     public TelaVisualizarClientes() {
         initComponents();
+        
+        setarModeloTabela();
+        
+        resultados = controle.buscarClientes();
+        int codigo;
+        String nome;
+        String telefone;
+        
+        try {
+            
+            
+            while(resultados.next()){
+                
+                codigo = resultados.getInt("codigo");
+                nome = resultados.getString("nome");
+                telefone = resultados.getString("telefone");
+                
+                modelo.addRow(new Object[]{codigo,nome,telefone});
+                
+                
+                
+            }
+            
+        } catch (Exception e) {
+        }
+        
+        
+    }
+    
+    public void setarModeloTabela(){
+        modelo = (DefaultTableModel) tbClientes.getModel();
     }
 
     /**
