@@ -18,7 +18,6 @@ public class controlaCliente {
     //método para adicionar
     public void adicionarCliente(Cliente c) {
 
-        //conn = conexao.getConnection();
         try {
 
             pst = conn.prepareStatement("insert into clientes (nome,telefone) "
@@ -39,7 +38,6 @@ public class controlaCliente {
     //método pesquisar cliente
     public Cliente pesquisarCliente(int codigo) {
 
-        //conn = conexao.getConnection();
         try {
 
             pst = conn.prepareStatement("select * from clientes where codigo = ?");
@@ -89,4 +87,20 @@ public class controlaCliente {
     }
 
     //método para excluir
+    public void excluirCliente(Cliente c) {
+
+        try {
+
+            pst = conn.prepareStatement("delete from clientes where codigo=?");
+
+            pst.setInt(1, c.getCodigo());
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso!");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+
+    }
 }
