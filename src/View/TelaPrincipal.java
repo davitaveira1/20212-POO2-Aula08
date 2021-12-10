@@ -33,6 +33,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -65,7 +66,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Gestão Clientes");
+        jMenu1.setText("Gestão");
+
+        jMenu2.setText("Clientes");
 
         jMenuItem1.setText("Inserir Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +76,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu2.add(jMenuItem1);
 
         jMenuItem2.setText("Alterar Clientes");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +84,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Excluir Clientes");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +92,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Visualizar Clientes");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +100,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu2.add(jMenuItem4);
+
+        jMenu1.add(jMenu2);
 
         jMenuBar1.add(jMenu1);
 
@@ -213,6 +218,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
