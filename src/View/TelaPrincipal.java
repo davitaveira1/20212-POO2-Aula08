@@ -5,11 +5,15 @@
  */
 package View;
 
+import relatorios.relatorioClientes;
+
 /**
  *
  * @author Davi
  */
 public class TelaPrincipal extends javax.swing.JFrame {
+    
+    relatorioClientes relatorioCli = new relatorioClientes();
 
     /**
      * Creates new form TelaPrincipal
@@ -38,6 +42,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
@@ -103,6 +109,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenu1.add(jMenu2);
+
+        jMenu3.setText("Relatórios");
+
+        jMenuItem5.setText("Visualizar Todos os Clientes");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenu1.add(jMenu3);
 
         jMenuBar1.add(jMenu1);
 
@@ -178,6 +196,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tls.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        
+        relatorioCli.visualizarTodosOsClientes();
+        
+        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -219,11 +245,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     public javax.swing.JLabel lbUserLogado;
     // End of variables declaration//GEN-END:variables
 }

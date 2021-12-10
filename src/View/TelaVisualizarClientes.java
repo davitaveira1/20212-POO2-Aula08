@@ -8,6 +8,7 @@ package View;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import controller.controlaCliente;
+import relatorios.relatorioClientes;
 
 /**
  *
@@ -18,6 +19,7 @@ public class TelaVisualizarClientes extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
     ResultSet resultados;
     controlaCliente controle = new controlaCliente();
+    relatorioClientes relatorioCli = new relatorioClientes();
 
     /**
      * Creates new form TelaVisualizarClientes
@@ -70,7 +72,7 @@ public class TelaVisualizarClientes extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbClientes = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btIimprimir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -94,7 +96,12 @@ public class TelaVisualizarClientes extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Visualização dos Clientes da Base");
 
-        jButton1.setText("Imprimir");
+        btIimprimir.setText("Imprimir");
+        btIimprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btIimprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +117,7 @@ public class TelaVisualizarClientes extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(212, 212, 212)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btIimprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,16 +128,23 @@ public class TelaVisualizarClientes extends javax.swing.JInternalFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btIimprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 679, 609);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btIimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIimprimirActionPerformed
+        // TODO add your handling code here:
+        
+        relatorioCli.visualizarTodosOsClientes();
+        
+    }//GEN-LAST:event_btIimprimirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btIimprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
