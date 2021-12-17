@@ -27,6 +27,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class relatorioClientes {
@@ -45,9 +46,18 @@ public class relatorioClientes {
 
             URL arquivo = getClass().getResource("/relatorios/relatorioClientes.jasper");
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(arquivo);
+            
+            //inserindo parâmetro no relatório
+            Map<String, Object> params = new HashMap<String, Object>();
+            
+            //resgate da chave userLogadoSistema
+            String userLogadoSistema = System.getProperty("userLogadoSistema");            
+            
+            params.put("userLogado",userLogadoSistema);
+            
 
             JRResultSetDataSource jrRS = new JRResultSetDataSource(rs);
-            JasperPrint print = JasperFillManager.fillReport(jasperReport, new HashMap(), jrRS);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport, params, jrRS);
             JasperViewer.viewReport(print);
             
         } catch (Exception e) {

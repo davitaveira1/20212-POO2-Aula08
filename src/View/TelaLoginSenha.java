@@ -129,8 +129,14 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         
         if (controleUser.verificarUserSenha(login, senha)) {
 
+            //criando chave userLogadoSistema
+            System.setProperty("userLogadoSistema", login);
+            
             TelaPrincipal tp = new TelaPrincipal();
-            tp.lbUserLogado.setText(login);            
+            //resgate da chave userLogadoSistema
+            String userLogadoSistema = System.getProperty("userLogadoSistema");
+            
+            tp.lbUserLogado.setText(userLogadoSistema);            
             tp.setVisible(true);
             dispose();
             
